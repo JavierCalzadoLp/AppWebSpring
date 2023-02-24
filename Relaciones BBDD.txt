@@ -1,0 +1,11 @@
+La tabla Usuarios tiene una relación uno a muchos con la tabla Direcciones. Por lo tanto, la tabla Direcciones tendría una clave foránea (FK) id_usuario que hace referencia a la clave primaria (PK) id_usuario de la tabla Usuarios.
+
+La tabla Usuarios tiene una relación muchos a muchos con la tabla Roles. Para implementar esta relación, es necesario crear una tabla intermedia llamada Usuario_Rol que tendría las claves primarias de ambas tablas (id_usuario y id_rol, respectivamente) como claves foráneas.
+
+La tabla Usuarios tiene una relación uno a muchos con la tabla Tarjetas. Por lo tanto, la tabla Tarjetas tendría una clave foránea (FK) id_usuario que hace referencia a la clave primaria (PK) id_usuario de la tabla Usuarios.
+
+La tabla Pedidos tiene una relación muchos a uno con la tabla Direcciones. Por lo tanto, la tabla Pedidos tendría una clave foránea (FK) id_direccion que hace referencia a la clave primaria (PK) id_direccion de la tabla Direcciones.
+
+La tabla Pedidos tiene una relación muchos a uno con la tabla Tarjetas. Por lo tanto, la tabla Pedidos tendría una clave foránea (FK) id_tarjeta que hace referencia a la clave primaria (PK) id_tarjeta de la tabla Tarjetas.
+
+La tabla Pedidos tiene una relación muchos a muchos con la tabla Productos. Para implementar esta relación, es necesario crear una tabla intermedia llamada Pedido_Producto que tendría las claves primarias de ambas tablas (id_pedido y id_producto, respectivamente) como claves foráneas. Además, esta tabla intermedia tendría un campo adicional llamado unidades para almacenar el número de unidades de cada producto en cada pedido.
