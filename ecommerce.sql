@@ -121,8 +121,118 @@ INSERT INTO Usuarios_Roles (id_usuario, id_rol) VALUES
     
 select * from usuarios_roles;
 
+INSERT INTO Direcciones (codigo_postal, localidad, calle, numero, piso, letra) VALUES
+('28001', 'Madrid', 'Calle de Atocha', 1, '1r', NULL),
+('28001', 'Madrid', 'Gran Vía', 123, '3r', '1a'),
+('28001', 'Madrid', 'Calle de Alcalá', 100, '2o', 'B'),
+('28002', 'Madrid', 'Calle de Serrano', 50, '4o', 'D'),
+('46001', 'Valencia', 'Plaza del Ayuntamiento', 1, '1o', 'A'),
+('46002', 'Valencia', 'Calle de Colón', 50, '5o', 'C'),
+('41001', 'Sevilla', 'Calle Sierpes', 1, '2o', 'A'),
+('41002', 'Sevilla', 'Avenida de la Constitución', 1, '1o', 'C'),
+('50001', 'Zaragoza', 'Paseo Independencia', 24, '3o', 'B'),
+('50002', 'Zaragoza', 'Calle de Don Jaime I', 18, '1o', 'D');
 
+select * from direcciones;
 
+INSERT INTO usuarios_direcciones (id_usuario, id_direccion) VALUES
+  (1, 2),
+  (2, 4),
+  (3, 10),
+  (4, 6),
+  (5, 8),
+  (6, 1),
+  (7, 3),
+  (8, 5),
+  (9, 7),
+  (10, 9);
+  
+  select * from usuarios_direcciones;
+  
+  INSERT INTO Tarjetas (num_tarjeta, nombre_titular, fecha_caducidad, CVV) VALUES 
+('1111222233334444', 'Juan Perez', '2024-05-01', 123),
+('2222333344445555', 'Maria Garcia', '2023-11-01', 456),
+('3333444455556666', 'Pedro Fernandez', '2024-02-01', 789),
+('4444555566667777', 'Sofia Rodriguez', '2025-08-01', 234),
+('5555666677778888', 'Lucas Martinez', '2022-10-01', 567),
+('6666777788889999', 'Elena Sanchez', '2023-12-01', 890),
+('7777888899990000', 'Carlos Gomez', '2026-01-01', 345),
+('8888999900001111', 'Ana Torres', '2022-06-01', 678),
+('9999000011112222', 'Javier Jimenez', '2025-03-01', 901),
+('0000111122223333', 'Laura Navarro', '2024-09-01', 234);
+
+select * from tarjetas;
+
+INSERT INTO Usuarios_Tarjetas (id_usuario, id_tarjeta) VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5),
+(6,6),
+(7,7),
+(8,8),
+(9,9),
+(10,10);
+
+select * from usuarios_tarjetas;
+
+INSERT INTO Productos (id_producto, nombre, descripcion, precio, stock) VALUES 
+       (100, 'Nike Air Force', 'Zapatillas clásicas de Nike', 89.99, 15),
+       (110, 'Adidas Superstar', 'Zapatillas de la línea Originals de Adidas', 79.99, 12),
+       (120, 'Puma Suede Classic', 'Zapatillas icónicas de Puma', 69.99, 17),
+       (130, 'Reebok Classic', 'Zapatillas de la línea Classics de Reebok', 59.99, 11),
+       (140, 'New Balance 574', 'Zapatillas de estilo retro de New Balance', 79.99, 16),
+       (150, 'Converse Chuck Taylor All Star', 'Zapatillas de lona de Converse', 64.99, 13),
+       (160, 'Vans Old Skool', 'Zapatillas clásicas de Vans', 69.99, 14),
+       (170, 'Asics Gel-Kayano 27', 'Zapatillas de running de Asics', 129.99, 18),
+       (180, 'Under Armour HOVR Phantom', 'Zapatillas de running de Under Armour', 109.99, 20),
+       (190, 'Salomon Speedcross 5', 'Zapatillas de trail running de Salomon', 139.99, 19),
+       (200, 'Brooks Ghost 13', 'Zapatillas de running de Brooks', 119.99, 16),
+       (210, 'Mizuno Wave Rider 24', 'Zapatillas de running de Mizuno', 99.99, 15),
+       (220, 'Hoka One One Clifton 7', 'Zapatillas de running de Hoka One One', 149.99, 18),
+       (230, 'Saucony Kinvara 12', 'Zapatillas de running de Saucony', 89.99, 12),
+       (240, 'On Cloud X', 'Zapatillas de running de On', 129.99, 17),
+       (250, 'Asics Gel-Nimbus 23', 'Zapatillas de running de Asics', 149.99, 20),
+       (260, 'Nike Air Max 90', 'Zapatillas icónicas de Nike', 119.99, 19),
+       (270, 'Adidas Ultraboost 21', 'Zapatillas de running de Adidas', 179.99, 14),
+       (280, 'Puma Calibrate Runner', 'Zapatillas de running de Puma', 99.99, 15),
+       (290, 'Reebok Zig Kinetica', 'Zapatillas de running de Reebok', 109.99, 16);
+       
+       select * from productos;
+       
+
+  
+  INSERT INTO Pedidos (id_pedido, fecha, id_direccion, id_tarjeta) VALUES 
+(1000, '2023-01-01 10:20:16', 1, 1),
+(1010, '2023-01-02 11:05:46', 2, 2),
+(1020,'2023-01-03 12:20:01', 3, 3),
+(1030,'2023-01-04 13:45:00', 4, 4),
+(1040, '2023-01-05 14:27:09', 5, 5),
+(1050, '2023-01-10 15:27:09', 6, 6),
+(1060, '2023-01-10 16:27:09', 7, 7),
+(1070, '2023-01-11 17:27:09', 8, 8),
+(1080, '2023-01-11 18:27:09', 9, 9),
+(1090, '2023-01-12 19:27:09', 10, 10);
+
+select * from pedidos;
+
+INSERT INTO Pedidos_Productos (id_pedido, id_producto, unidades, precio_venta) VALUES 
+(1000, 100, 2, 179.98),
+(1010, 120, 1, 69.99),
+(1020, 200, 1, 119.99),
+(1030, 140, 2, 159.98),
+(1040, 160, 1, 69.99),
+(1050, 110, 1, 79.99),
+(1060, 100, 1, 89.99),
+(1070, 150, 1, 64.99),
+(1080, 220, 1, 149.99),
+(1090, 280, 1, 99.99);
+
+ALTER TABLE Pedidos_Productos ADD CONSTRAINT fk_pedidos_productos_pedidos FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido);
+ALTER TABLE Pedidos_Productos ADD CONSTRAINT fk_pedidos_productos_productos FOREIGN KEY (id_producto) REFERENCES Productos(id_producto);
+
+select * from pedidos_productos;
 
 
 CREATE USER javier IDENTIFIED BY 'javier';
