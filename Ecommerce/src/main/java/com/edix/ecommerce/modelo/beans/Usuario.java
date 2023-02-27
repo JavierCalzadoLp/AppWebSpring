@@ -32,6 +32,8 @@ public class Usuario implements Serializable {
 	private String nombre;
 
 	private String password;
+	
+	 
 
 	public Usuario() {
 	}
