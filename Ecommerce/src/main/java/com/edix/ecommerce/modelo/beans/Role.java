@@ -1,6 +1,8 @@
 package com.edix.ecommerce.modelo.beans;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.*;
 
 
@@ -39,5 +41,27 @@ public class Role implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	@Override
+	public String toString() {
+		return "Role [idRol=" + idRol + ", nombre=" + nombre + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idRol);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Role))
+			return false;
+		Role other = (Role) obj;
+		return idRol == other.idRol;
+	}
+	
+	
 
 }

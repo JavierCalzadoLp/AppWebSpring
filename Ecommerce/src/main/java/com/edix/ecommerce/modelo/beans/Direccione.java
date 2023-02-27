@@ -1,6 +1,8 @@
 package com.edix.ecommerce.modelo.beans;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.*;
 
 
@@ -90,5 +92,28 @@ public class Direccione implements Serializable {
 	public void setPiso(String piso) {
 		this.piso = piso;
 	}
+
+	@Override
+	public String toString() {
+		return "Direccione [idDireccion=" + idDireccion + ", calle=" + calle + ", codigoPostal=" + codigoPostal
+				+ ", letra=" + letra + ", localidad=" + localidad + ", numero=" + numero + ", piso=" + piso + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idDireccion);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Direccione))
+			return false;
+		Direccione other = (Direccione) obj;
+		return idDireccion == other.idDireccion;
+	}
+	
+	
 
 }

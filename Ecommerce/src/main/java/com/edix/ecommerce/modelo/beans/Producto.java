@@ -3,6 +3,7 @@ package com.edix.ecommerce.modelo.beans;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 
 /**
@@ -71,5 +72,28 @@ public class Producto implements Serializable {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
+	@Override
+	public String toString() {
+		return "Producto [idProducto=" + idProducto + ", descripcion=" + descripcion + ", nombre=" + nombre
+				+ ", precio=" + precio + ", stock=" + stock + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idProducto);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Producto))
+			return false;
+		Producto other = (Producto) obj;
+		return idProducto == other.idProducto;
+	}
+	
+	
 
 }

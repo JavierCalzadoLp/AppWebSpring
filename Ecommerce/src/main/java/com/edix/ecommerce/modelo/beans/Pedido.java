@@ -3,6 +3,7 @@ package com.edix.ecommerce.modelo.beans;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -67,5 +68,28 @@ public class Pedido implements Serializable {
 	public void setTarjeta(Tarjeta tarjeta) {
 		this.tarjeta = tarjeta;
 	}
+
+	@Override
+	public String toString() {
+		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", direccione=" + direccione + ", tarjeta="
+				+ tarjeta + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idPedido);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Pedido))
+			return false;
+		Pedido other = (Pedido) obj;
+		return idPedido == other.idPedido;
+	}
+	
+	
 
 }
