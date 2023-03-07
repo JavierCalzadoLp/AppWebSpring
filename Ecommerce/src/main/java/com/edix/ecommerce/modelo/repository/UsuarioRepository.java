@@ -14,6 +14,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	@Query("SELECT u FROM Usuario u JOIN UsuarioDireccione ud ON u.id = ud.usuario JOIN ud.direccion d WHERE d.localidad = :localidad")
 	List<Usuario> buscarPorCiudad(@Param("localidad") String localidad);
 	
+	Usuario findByNombre(String nombre);
+	
 	
 
 
