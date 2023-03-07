@@ -36,8 +36,8 @@ public class EcommerceRestController {
 
     @GetMapping("/producto/{id}/precio")
     public @ResponseBody Double damePrecioById(@PathVariable("id") double id) { 
-        Producto producto = productoRepository.findById((int) id);
-        //Producto producto = productoRepository.findById((int) id).orElse(null);
+        //Producto producto = productoRepository.findById((int) id);
+        Producto producto = productoRepository.findById((int) id).orElse(null);
         if (producto != null) {
             return (double) producto.getPrecio();
         }

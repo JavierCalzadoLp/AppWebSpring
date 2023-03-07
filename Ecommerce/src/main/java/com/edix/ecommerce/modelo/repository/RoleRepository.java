@@ -6,6 +6,6 @@ import com.edix.ecommerce.modelo.beans.Role;
 
 public interface RoleRepository extends JpaRepository<Role, Integer>{
 	
-	Role findById(int id);
+	//Role findById(int id);
 
 }

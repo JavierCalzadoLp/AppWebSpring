@@ -38,7 +38,7 @@ public class AdminController {
 	PedidoDao pedao;
 	
 	
-	
+	/*
 	@GetMapping("/misDatos")
 	public String misDatos(Authentication aut, Model model) {
 		
@@ -47,7 +47,8 @@ public class AdminController {
 		return "misdatos";
 		
 	}
-	
+	*/
+	/*
 	@PostMapping("/newProducto")
 	public String newProducto(Model model, Producto producto, RedirectAttributes ratt) {	
 		
@@ -69,7 +70,8 @@ public class AdminController {
 	 	}
 		
 	}
-	
+	*/
+	/*
 	@GetMapping("/eliminarProducto/{idProducto}")
 	public String eliminarProducto(@PathVariable("id") int id, Model model) {
 		String mensaje = null;
@@ -82,7 +84,8 @@ public class AdminController {
 		return "forward:/";
 			
 	}
-	
+	*/
+	/*
 	
 	@GetMapping("/editar/{id}")
 	public String enviarFormularioEditar(Model model, @PathVariable(name="id") int codigo) {
@@ -93,7 +96,8 @@ public class AdminController {
 		return "formProductoEditar";
 		 
 	}
-	
+	*/
+	/*
 	@PostMapping("/modificar")
 	public String procesarFormularioEditar(Model model,Producto producto ) {
 		
@@ -107,8 +111,9 @@ public class AdminController {
 		 
 		 
 	}
+	*/
 	
-	
+	/*
 	@GetMapping("/editarRole/{id}")
 	public String editarRole(Model model, @PathVariable(name="id") int id) {
 		
@@ -119,7 +124,7 @@ public class AdminController {
 		 
 		
 	}
-	
+	*/
 	/*
 	@GetMapping("/pedidosDia/{fecha}")
 	public String verPedidosDia(Model model, Authentication aut, @PathVariable(name="fecha")Date fecha) {

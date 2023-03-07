@@ -2,7 +2,10 @@ package com.edix.ecommerce.modelo.beans;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -33,6 +36,15 @@ public class Pedido implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_tarjeta")
 	private Tarjeta tarjeta;
+	
+	//uni-directional many-to-one association to Usuario
+	@ManyToOne
+	@JoinColumn(name="id_usuario")
+	private Usuario usuario;
+	
+	//bi-directional many-to-one association to PedidosProductos
+	@OneToMany(mappedBy="pedido", cascade= {CascadeType.PERSIST})
+	private List<PedidosProductos> pedidosproductos;
 
 	public Pedido() {
 	}
@@ -68,16 +80,80 @@ public class Pedido implements Serializable {
 	public void setTarjeta(Tarjeta tarjeta) {
 		this.tarjeta = tarjeta;
 	}
+	
 
-	@Override
-	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", direccione=" + direccione + ", tarjeta="
-				+ tarjeta + "]";
+	public Usuario getUsuario() {
+		return usuario;
 	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
+	public List<PedidosProductos> getPedidosproductos() {
+		return pedidosproductos;
+	}
+
+	public void setPedidosproductos(List<PedidosProductos> pedidosproductos) {
+		this.pedidosproductos = pedidosproductos;
+	}
+	
+	
+
+	public PedidosProductos addPedidosProductos(PedidosProductos pedidosproductos) {
+		getPedidosproductos().add(pedidosproductos);
+		pedidosproductos.setPedido(this);
+		
+		return pedidosproductos;
+	}
+	
+	public PedidosProductos removePedidosProductos(PedidosProductos pedidosproductos) {
+		getPedidosproductos().add(pedidosproductos);
+		pedidosproductos.setPedido(this);
+		
+		return pedidosproductos;
+	}
+	
+	/*
+	 public void addPedidosProductos(List<PedidosProductos> pedidosproductos) {
+		if(pedidosproductos == null) {
+			pedidosproductos = new ArrayList<>();
+			pedidosproductos.addAll(pedidosproductos);
+		((PedidosProductos) pedidosproductos).setPedido(this);
+		}
+	}
+	
+	public void removePedidosProductos(List<PedidosProductos> pedidosproductos) {
+		if(pedidosproductos == null)
+			pedidosproductos = new ArrayList<>();
+			pedidosproductos.remove(pedidosproductos);
+		((PedidosProductos) pedidosproductos).setPedido(this);
+		
+	}
+	
+	
+	public void removePedidosProductos(List<PedidosProductos> pedidosproductosList) {
+	    if (pedidosproductosList != null && !pedidosproductosList.isEmpty()) {
+	        for (PedidosProductos pedidosproductos : pedidosproductosList) {
+	            pedidosproductos.setPedido(null);
+	        }
+	        pedidosproductosList.clear();
+	    }
+	}
+*/
+
+
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(idPedido);
+	}
+
+	@Override
+	public String toString() {
+		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", direccione=" + direccione + ", tarjeta="
+				+ tarjeta + ", usuario=" + usuario + ", pedidosproductos=" + pedidosproductos + "]";
 	}
 
 	@Override

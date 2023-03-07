@@ -44,7 +44,7 @@ public class UsuarioController {
 	@Autowired
 	DireccioneDao ddao;
 	
-	
+	/*
 	@GetMapping("/misDatos")
 	public String misDatos(Authentication aut, Model model) {
 		
@@ -53,7 +53,8 @@ public class UsuarioController {
 		return "misdatos";
 		
 	}
-	
+	*/
+	/*
 	@PostMapping("/newTarjeta")
 	public String newTarjeta(Model model, Tarjeta tarjeta, RedirectAttributes ratt) {	
 		
@@ -77,6 +78,7 @@ public class UsuarioController {
 	 	}
 		
 	}
+	*/
 	/*
 	@PostMapping("/newDirection")
 	public String proregistrar(Model model, Direccione direccion, RedirectAttributes ratt) {

@@ -8,15 +8,15 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Tienda en línea - Inicio</title>
+	<title>Ecommerce - Inicio</title>
 	<!--  <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />"> -->
 </head>
 <body>
 	<header style="border: 1px solid black;">
 		<nav>
 			<ul style="justify-content: center">
-				<li><a href="<spring:url value="/" />">Inicio</a></li>
-				<li><a href="<spring:url value="#" />">Productos</a></li>
+				<li><a href="<spring:url value="#" />">Inicio</a></li>
+				<li><a href="<spring:url value="/todosProductos" />">Productos</a></li>
 				<li><a href="<spring:url value="#" />">Servicios</a></li>
 				<li><a href="<spring:url value="#" />">Carrito</a></li>
 				<li><a href="<spring:url value="#" />">Registro</a></li>
@@ -122,12 +122,7 @@
 	
 		
 		
-		
-		
 
-
-
-	
 
 	<main>
 		<div class="container">
@@ -135,55 +130,55 @@
 				<img src="<c:url value='/images/image1.jpg' />" alt="Producto 1">
 				<h3>Producto 1</h3>
 				<p>Nike Style Black/Red/White</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image2.jpg' />" alt="Producto 2">
 				<h3>Producto 2</h3>
 				<p>Nike Air Force White</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image3.jpg' />" alt="Producto 3">
 				<h3>Producto 3</h3>
 				<p>Nike Air Force Style Consectetur.</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image4.jpg' />" alt="Producto 3">
 				<h3>Producto 4</h3>
 				<p>Converse All Star</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image5.jpg' />" alt="Producto 3">
 				<h3>Producto 4</h3>
 				<p>Converse All Star</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image6.jpg' />" alt="Producto 3">
 				<h3>Producto 4</h3>
 				<p>Converse All Star</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image7.jpg' />" alt="Producto 3">
 				<h3>Producto 4</h3>
 				<p>Converse All Star</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image8.jpg' />" alt="Producto 3">
 				<h3>Producto 4</h3>
 				<p>Converse All Star</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image9.jpg' />" alt="Producto 3">
 				<h3>Producto 4</h3>
 				<p>Converse All Star</p>
-				<a href="#" class="button">Añadir al carrito</a>
+				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 		</div>
 	</main>

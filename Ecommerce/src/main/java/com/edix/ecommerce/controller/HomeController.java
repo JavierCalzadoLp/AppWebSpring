@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -42,6 +43,20 @@ public class HomeController {
 	public String Saludo() {
 		
 		return "prueba";
+	}
+	
+	@GetMapping("/todosProductos")
+	public String verProductos(Model model) {
+		List<Producto> listaProductos = pdao.verTodos();
+		model.addAttribute("productos", listaProductos);
+		return "todosProductos";
+	}
+	
+	@GetMapping("/detalleProducto")
+	public String detalleProducto(@RequestParam("id_producto") int idProducto, Model model) {
+		Producto producto = pdao.verProducto(idProducto);
+		model.addAttribute("producto", producto);
+		return "detalleProducto";
 	}
 	
 	@GetMapping("/")

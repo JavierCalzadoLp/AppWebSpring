@@ -20,7 +20,7 @@ public class ProductoDaoImpl implements ProductoDao{
 		return prepo.findAll();
 	}
 
-	
+	/*
 	@Override
 	public boolean registro(Producto producto) {
 		if (findById(producto.getNombre()) == null) {
@@ -29,17 +29,20 @@ public class ProductoDaoImpl implements ProductoDao{
 		}
 		return false;
 	}
-	
+	*/
+	/*
 	@Override
 	public Producto findById(String nombre) {
 		return prepo.findByNombre(nombre);
 	}
-	
+	*/
+	/*
 	@Override
 	public Producto findByIdReal(int id) {
 		return prepo.findById(id);
 	}
-	
+	*/
+	/*
 	@Override
 	public int bajaProducto(int id) {
 		int filas = 0;
@@ -53,7 +56,8 @@ public class ProductoDaoImpl implements ProductoDao{
 		}
 		return filas;
 	}
-	
+	*/
+	/*
 	@Override
 	public int cambiaProducto(Producto producto) {
 		int cambia = 0;
@@ -62,6 +66,66 @@ public class ProductoDaoImpl implements ProductoDao{
 			cambia = 1;
 		}
 		return cambia;
+	}
+	*/
+
+	//Parte hecha por Javier
+
+	@Override
+	public List<Producto> verTodos() {
+		
+		return prepo.findAll();
+	}
+
+
+	@Override
+	public List<Producto> verProductosPorNombre(String nombre) {
+		
+		return prepo.buscarPorNombre(nombre);
+	}
+
+	//Este es para ver el detalle del producto
+	@Override
+	public Producto verProducto(int idProducto) {
+		
+		return prepo.findById(idProducto).orElse(null);
+	}
+	
+
+	@Override
+	public int altaProducto(Producto producto) {
+		int filas = 0;
+		try {
+			prepo.save(producto);
+			filas = 1;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return filas;
+	}
+
+
+	@Override
+	public int eliminarProducto(int idProducto) {
+		int filas = 0;
+		try {
+			prepo.deleteById(idProducto);
+			filas=1;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return filas;
+	}
+
+
+	@Override
+	public int modificarProducto(Producto producto) {
+		int filas=0;
+			if(verProducto(producto.getIdProducto()) != null) {
+				prepo.save(producto);
+				filas=1;
+			}
+		return filas;
 	}
 
 }
