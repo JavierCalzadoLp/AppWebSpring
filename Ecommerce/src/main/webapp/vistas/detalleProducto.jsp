@@ -18,7 +18,7 @@
   
   <div class="producto-info">
     <p>${producto.descripcion}</p>
-    <p>Precio: ${producto.precio}</p>
+    <p><strong>Precio: ${producto.precio}</strong></p>
     <p>Stock: ${producto.stock}</p>
     <a href="/todosProductos" class="btn btn-primary">Volver</a>
   </div>
@@ -94,6 +94,72 @@ h1{
 
 
 </style>
+
+<!-- 
+ESTO ES PARA AÑADIR EL MENU TAMBIEN EN EL RESTO DE PAGINAS
+
+<header style="border: 1px solid black;">
+		<nav>
+			<ul style="justify-content: center">
+				<li><a href=/inicio>Home</a></li>
+				<li><a href=/todosProductos>Productos</a></li>
+				<li><a href=#>Servicios</a></li>
+				<li><a href=#>Carrito</a></li>
+				<li><a href=#>Registrarse</a></li>
+				<li><a href=#><button>Iniciar sesión</button></a></li>
+			</ul>
+		</nav>
+		<style>
+		nav ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-align: center;
+			background-color: #f2f2f2;
+		}
+		
+		nav ul li {
+			display: inline-block;
+			margin:  10px;
+		}
+		
+		nav ul li a {
+			display: block;
+			padding: 10px 20px;
+			color: #555;
+			text-decoration: none;
+			font-size: 18px;
+			font-weight: bold;
+			transition: color 0.3s ease-in-out;
+		}
+		
+		nav ul li a:hover {
+			color: #007bff;
+		}
+		
+		section {
+			margin: 40px;
+		}
+		button {
+		
+				background-color: #007bff;
+				color: white;
+				border: none;
+  				border-radius: 5px; 
+  				padding: 10px 20px; 
+  				text-align: center; 
+  				text-decoration: none;
+  				display: inline-block;
+  				font-size: 16px; 
+ 	 			margin: 5px;
+  				cursor: pointer;
+  				transition: background-color 0.3s;
+		
+		}
+		
+	</style>
+	</header>
+ -->
 
 </body>
 </html>

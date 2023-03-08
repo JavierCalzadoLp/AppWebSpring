@@ -1,21 +1,33 @@
 package com.edix.ecommerce.modelo.dao;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.edix.ecommerce.modelo.beans.Direccione;
 import com.edix.ecommerce.modelo.beans.Role;
 import com.edix.ecommerce.modelo.beans.Tarjeta;
 import com.edix.ecommerce.modelo.beans.Usuario;
+import com.edix.ecommerce.modelo.repository.RoleRepository;
 import com.edix.ecommerce.modelo.repository.UsuarioRepository;
+
+
 
 @Service
 public class UsuarioDaoImpl implements UsuarioDao{
 	
 	@Autowired
 	private UsuarioRepository urepo;
+	
+	@Autowired
+	private RoleRepository rrepo;
 
 	@Override
 	public List<Usuario> verTodos() {
@@ -33,6 +45,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	public int altaUsuario(Usuario usuario) {
 		int filas=0;
 		try {
+			
 			urepo.save(usuario);
 			filas = 1;
 		}catch(Exception e) {
@@ -100,25 +113,62 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	    return direcciones;
 	}
 
+	
+	//método que modifica el rol del usuario (Solo si eres admin)
+	/*
 	@Override
-	public List<Role> addRoleUsuario(Usuario usuario, Role role) {
-		List<Role> roles = usuario.getRoles();
-		roles.add(role);
-		usuario.setRoles(roles);
-		return roles;
+	public int modificarRol(Usuario usuario) {
+		
+		Usuario u1 = urepo.verUsuario()
+		
+		
+		
+	        int modifica = 0;
+	        if(u1 != null) {
+	        	Role role = new Role();
+	        	role.setIdRol(2);
+	        	role.setNombre("rol_admin");
+	        	u1.setRole(role);
+	        	
+	            urepo.save(u1);
+	            modifica = 1;
+	        }
+	        return modifica;
+		
+	}
+*/
+	/*
+	@Override
+	public int modificarRol(Usuario usuario) {
+	    int modifica = 0;
+	    Optional<Usuario> optionalU1 = urepo.findById(usuario.getIdUsuario());
+	    if (optionalU1.isPresent()) {
+	        Usuario u1 = optionalU1.get();
+	        Role role = new Role();
+	        role.setIdRol(2);
+	        role.setNombre("rol_admin");
+	        u1.setRole(role);
+	        urepo.save(u1);
+	        modifica = 1;
+	    }
+	    return modifica;
+	}
+	*/
+	
+	@Override
+	public int modificarRol(Usuario usuario) {
+	    int filas=0;
+	    
+	    urepo.save(usuario);
+	    return filas;
 	}
 
-	@Override
-	public List<Role> removeRoleUsuario(Usuario usuario, Role role) {
-		List<Role> roles = usuario.getRoles();
-	    roles.remove(role);
-	    usuario.setRoles(roles);
-	    //session.update(usuario);
-	    return roles;
-	}
+
+
+
+
 	
-	
-	
+
 	
 	
 	/*

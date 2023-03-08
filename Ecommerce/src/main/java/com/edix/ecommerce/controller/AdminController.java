@@ -17,6 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.ecommerce.modelo.beans.Pedido;
 import com.edix.ecommerce.modelo.beans.Producto;
+import com.edix.ecommerce.modelo.beans.Role;
+import com.edix.ecommerce.modelo.beans.Usuario;
 import com.edix.ecommerce.modelo.dao.PedidoDao;
 import com.edix.ecommerce.modelo.dao.ProductoDao;
 import com.edix.ecommerce.modelo.dao.RoleDao;
@@ -38,6 +40,50 @@ public class AdminController {
 	PedidoDao pedao;
 	
 	
+	
+	//VER USUARIOS
+	
+		@GetMapping("/verUsuarios")
+		public String verUsuarios(Model model) {
+			
+			List<Usuario> listaUsuarios = udao.verTodos();
+			model.addAttribute("usuarios", listaUsuarios);
+			
+			return "verUsuarios";
+		}
+		
+		//DAR DE ALTA UN PRODUCTO
+		
+		@GetMapping("/altaProducto")
+		public String mostrarFormAlta() {
+			
+			return "formAltaProducto";
+		}
+		
+		@PostMapping("/altaProducto")
+		public String newProducto(Model model, Producto producto, RedirectAttributes ratt) {	
+			
+			producto.setDescripcion(producto.getDescripcion());
+			producto.setNombre(producto.getNombre());
+			producto.setPrecio(producto.getPrecio());
+			producto.setStock(producto.getStock());
+			
+		 	
+		 	
+		 	if (pdao.altaProducto(producto) != 0) {
+		 		ratt.addFlashAttribute("mensaje", "Alta Realizada");
+		 		return "redirect:/admin/altaProducto";
+		 	}
+		 	else {
+		 		model.addAttribute("mensaje", "ya existe el producto");
+		 		return "/admin/altaProducto";
+		 		
+		 	}
+			
+		}
+		
+	
+	
 	/*
 	@GetMapping("/misDatos")
 	public String misDatos(Authentication aut, Model model) {
@@ -48,83 +94,99 @@ public class AdminController {
 		
 	}
 	*/
-	/*
-	@PostMapping("/newProducto")
-	public String newProducto(Model model, Producto producto, RedirectAttributes ratt) {	
-		
-		producto.setDescripcion(producto.getDescripcion());
-		producto.setNombre(producto.getNombre());
-		producto.setPrecio(producto.getPrecio());
-		producto.setStock(producto.getStock());
-		
-	 	//TODO Revisar con los JSP
-	 	
-	 	if (pdao.registro(producto)) {
-	 		ratt.addFlashAttribute("mensaje", "alta realizada");
-	 		return "redirect:/misdatos";
-	 	}
-	 	else {
-	 		model.addAttribute("mensaje", "ya existe el producto");
-	 		return "/misdatos";
-	 		
-	 	}
-		
+	
+	@GetMapping("/eliminarProducto")
+	public String eliminarProducto(Model model) {
+		List<Producto> listaTodos = pdao.verTodos();
+		model.addAttribute("producto", listaTodos);
+		return "eliminarProducto";
 	}
-	*/
-	/*
+	
+	
+	
 	@GetMapping("/eliminarProducto/{idProducto}")
-	public String eliminarProducto(@PathVariable("id") int id, Model model) {
+	public String eliminarProducto(@PathVariable("idProducto") int idProducto, Model model) {
+
+		
 		String mensaje = null;
-		if (pdao.bajaProducto(id) == 1)
+		if (pdao.eliminarProducto(idProducto) != 0)
 			mensaje = "Producto eliminado correctamente";
 		else
 			mensaje = "Producto con dependencias: NO se ha podido eliminar";
 		
 		model.addAttribute("mensaje", mensaje);
-		return "forward:/";
+		return "forward:/admin/eliminarProducto";
 			
 	}
-	*/
-	/*
+	
+	
 	
 	@GetMapping("/editar/{id}")
 	public String enviarFormularioEditar(Model model, @PathVariable(name="id") int codigo) {
 		
 		 
+		model.addAttribute("producto", pdao.verProducto(codigo));
 		
-		model.addAttribute("producto", pdao.findByIdReal(codigo));
-		return "formProductoEditar";
+		return "editarProducto";
 		 
 	}
-	*/
-	/*
+	
 	@PostMapping("/modificar")
 	public String procesarFormularioEditar(Model model,Producto producto ) {
 		
-		
+		String mensaje =null;
 		System.out.println(producto);
+		/*
+		if(pdao.modificarProducto(producto) != 0)
+			mensaje = "Producto editado correctamente";
+		else
+			mensaje= "Producto no se puede editar";
+		*/
+		pdao.modificarProducto(producto);
 		
-	 	pdao.cambiaProducto(producto);
+		model.addAttribute("mensaje", mensaje);
 	 
 		
-	  	return "redirect:/";
+	  	return "redirect:/admin/eliminarProducto";
 		 
-		 
-	}
-	*/
 	
-	/*
+	}
+	
+	
+	
 	@GetMapping("/editarRole/{id}")
-	public String editarRole(Model model, @PathVariable(name="id") int id) {
+	public String editarRole(Model model, @PathVariable("id") int id) {
 		
-		model.addAttribute("rol", rdao.findById(id));
-		return "admin";
+		model.addAttribute("rol", udao.verUsuario(id));
 		
-		//TODO AÑADIR MENSAJE?
+		return "editarRole";
+		
 		 
 		
 	}
-	*/
+	
+	@PostMapping("/modificarRole")
+	public String procesarFormularioEditarRole(Model model,Usuario usuario ) {
+		
+		String mensaje =null;
+		
+		/*
+		if(pdao.modificarProducto(producto) != 0)
+			mensaje = "Producto editado correctamente";
+		else
+			mensaje= "Producto no se puede editar";
+		*/
+		
+		udao.modificarRol(usuario);
+		
+		model.addAttribute("mensaje", mensaje);
+	 
+		
+	  	return "redirect:/admin/verUsuarios";
+		 
+	
+	}
+	
 	/*
 	@GetMapping("/pedidosDia/{fecha}")
 	public String verPedidosDia(Model model, Authentication aut, @PathVariable(name="fecha")Date fecha) {

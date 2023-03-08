@@ -1,8 +1,10 @@
 package com.edix.ecommerce.modelo.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -18,5 +20,10 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer>{
 	//Producto findByNombre(String nombre);
 	
 	//Producto findById(int id);
-
+	/*
+	@Modifying
+    @Query("UPDATE Producto p SET p.idProducto = :idProducto, p.nombre = :nombre, p.precio = :precio, p.descripcion = :descripcion, p.stock = :stock")
+    int actualizarTodosLosProductos(@Param("idProducto") int idProducto, @Param("nombre") String nombre, @Param("precio") double precio, 
+    		@Param("descripcion") String descripcion, @Param("stock") int stock);
+*/
 }

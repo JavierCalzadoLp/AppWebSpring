@@ -14,13 +14,22 @@
 <body>
 	<header style="border: 1px solid black;">
 		<nav>
-			<ul style="justify-content: center">
-				<li><a href="<spring:url value="#" />">Inicio</a></li>
+			<ul style="justify-content: center" >
+				<li><a href="<spring:url value="#" />">Home</a></li>
 				<li><a href="<spring:url value="/todosProductos" />">Productos</a></li>
-				<li><a href="<spring:url value="#" />">Servicios</a></li>
-				<li><a href="<spring:url value="#" />">Carrito</a></li>
-				<li><a href="<spring:url value="#" />">Registro</a></li>
+				<li><a href="<spring:url value="#" />">Mi perfil</a></li>
+				
+				<li><a href="<spring:url value="/registro" />">Registrarse</a></li>
 				<li><a href="<spring:url value="#" />"><button>Iniciar sesión</button></a></li>
+				<li><a href="<spring:url value="#" />">Carrito</a></li>
+				<li><a href="<spring:url value="#" />">Añadir Tarjeta Bancaria</a></li>
+				<li><a href="<spring:url value="/usuarios/addDireccion" />">Añadir Dirección</a></li>
+				<li><a href="<spring:url value="/admin/altaProducto" />">Alta Productos</a></li>
+				<li><a href="<spring:url value="/admin/eliminarProducto" />">Administrar Productos</a></li>
+				<li><a href="<spring:url value="#" />">Alta Usuarios Admin</a></li>
+				<li><a href="<spring:url value="#" />">Pedidos</a></li>
+				<li><a href="<spring:url value="/admin/verUsuarios" />">Ver Usuarios</a></li>
+				
 			</ul>
 		</nav>
 	</header>
@@ -128,56 +137,56 @@
 		<div class="container">
 			<div class="product">
 				<img src="<c:url value='/images/image1.jpg' />" alt="Producto 1">
-				<h3>Producto 1</h3>
+				<h3>Nike</h3>
 				<p>Nike Style Black/Red/White</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image2.jpg' />" alt="Producto 2">
-				<h3>Producto 2</h3>
+				<h3>Nike</h3>
 				<p>Nike Air Force White</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image3.jpg' />" alt="Producto 3">
-				<h3>Producto 3</h3>
+				<h3>Nike</h3>
 				<p>Nike Air Force Style Consectetur.</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image4.jpg' />" alt="Producto 3">
-				<h3>Producto 4</h3>
+				<h3>Converse</h3>
 				<p>Converse All Star</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image5.jpg' />" alt="Producto 3">
-				<h3>Producto 4</h3>
-				<p>Converse All Star</p>
+				<h3>Nike</h3>
+				<p>Nike Blue/White</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image6.jpg' />" alt="Producto 3">
-				<h3>Producto 4</h3>
-				<p>Converse All Star</p>
+				<h3>Nike</h3>
+				<p>Nike Air Max Orange</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image7.jpg' />" alt="Producto 3">
-				<h3>Producto 4</h3>
-				<p>Converse All Star</p>
+				<h3>Nike</h3>
+				<p>Nike 574 White</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image8.jpg' />" alt="Producto 3">
-				<h3>Producto 4</h3>
-				<p>Converse All Star</p>
+				<h3>New Balance</h3>
+				<p>New Balance 974</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 			<div class="product">
 				<img src="<c:url value='/images/image9.jpg' />" alt="Producto 3">
-				<h3>Producto 4</h3>
-				<p>Converse All Star</p>
+				<h3>Nike</h3>
+				<p>Nike Air Force Black</p>
 				<a href="/todosProductos" class="button">Ver más</a>
 			</div>
 		</div>
@@ -253,27 +262,27 @@
     <tr>
       <td>
         <h3>Productos</h3>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
+        <p>Zapatillas</p>
+        <p>Mochilas</p>
+        <p>Ropa deportiva</p>
       </td>
       <td>
         <h3>Servicios</h3>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
+        <p>Venta deportiva</p>
+        <p>Alquiler material deportivo</p>
+        <p>Entrenamiento personal</p>
       </td>
       <td>
         <h3>Conócenos</h3>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
+        <p>Madrid, Gran Vía 56</p>
+        <p>Barcelona, Av Diagonal 154</p>
+        <p>Valencia, Paseo Marítimo 58</p>
       </td>
       <td>
         <h3>Sobre nosotros</h3>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
-        <p>Datos típicos de un footer</p>
+        <p>Instagram</p>
+        <p>Facebook</p>
+        <p>Twitter</p>
       </td>
     </tr>
   </table>

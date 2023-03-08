@@ -39,7 +39,22 @@ public class Usuario implements Serializable {
 	private int enabled;
 	
 	
+	//uni-directional many-to-one association to Role
+	@ManyToOne
+	@JoinColumn(name="id_rol")
+	private Role role;
 	
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+
+
 	//uni-directional many-to-many association to Tarjeta
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(
@@ -66,20 +81,7 @@ public class Usuario implements Serializable {
 				)
 		private List<Direccione> direcciones;
 		
-	
-		
-	//uni-directional many-to-many association to Role
-		@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE})
-		@JoinTable(
-				name="usuarios_roles"
-				, joinColumns= {
-						@JoinColumn(name="id_usuario")	
-					}
-				, inverseJoinColumns = {
-						@JoinColumn(name="id_rol")
-					}
-				)
-		private List<Role> roles;
+
 
 
 
@@ -150,7 +152,7 @@ public class Usuario implements Serializable {
 		public void setEnabled(int enabled) {
 			this.enabled = enabled;
 		}
-
+		
 
 
 		public List<Tarjeta> getTarjetas() {
@@ -172,14 +174,7 @@ public class Usuario implements Serializable {
 		}
 
 
-
-		public List<Role> getRoles() {
-			return roles;
-		}
-
-		public void setRoles(List<Role> roles) {
-			this.roles = roles;
-		}
+		
 		
 		public void addTarjeta(Tarjeta tarjeta) {
 			if (tarjetas == null)
@@ -227,6 +222,16 @@ public class Usuario implements Serializable {
 				return false;
 			return true;
 		}
+
+		@Override
+		public String toString() {
+			return "Usuario [idUsuario=" + idUsuario + ", apellidos=" + apellidos + ", email=" + email
+					+ ", fechaNacimiento=" + fechaNacimiento + ", nombre=" + nombre + ", password=" + password
+					+ ", enabled=" + enabled + ", role=" + role + ", tarjetas=" + tarjetas + ", direcciones="
+					+ direcciones + "]";
+		}
+		
+		
 		
 		
 	

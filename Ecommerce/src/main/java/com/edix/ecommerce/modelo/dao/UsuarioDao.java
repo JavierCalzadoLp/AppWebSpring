@@ -14,6 +14,10 @@ public interface UsuarioDao {
 	//Usuario mostrarUsuario(String username);
 	
 	
+	
+	int modificarRol(Usuario usuario);
+	
+	
 	List<Usuario> verTodos();
 	
 	Usuario verUsuario(int idUsuario);
@@ -28,8 +32,7 @@ public interface UsuarioDao {
 	List<Direccione> addDireccioneUsuario(Usuario usuario, Direccione direccione);
 	List<Direccione> removeDireccioneUsuario(Usuario usuario, Direccione direccione);
 	
-	List<Role> addRoleUsuario(Usuario usuario, Role role);
-	List<Role> removeRoleUsuario(Usuario usuario, Role role);
+	
 	
 	
 	

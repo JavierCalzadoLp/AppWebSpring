@@ -5,32 +5,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado de productos</title>
+<title>Insert title here</title>
 </head>
 <body>
-
- <h1>Lista de productos</h1>
- <div class="form">
- <form action="/ordenarProductos" method="get">
-    <label for="ordenarPor">Ordenar por:</label>
-    <select name="ordenarPor" id="ordenarPor">
-        <option value="id_producto">ID</option>
-        <option value="nombre">Nombre</option>
-        <option value="descripcion">Descripción</option>
-        <option value="precio">Precio</option>
-    </select>
-    <button type="submit">Ordenar</button>
-</form>
-</div>
-<div class="form">
-<form action="/buscarProductos" method="get">
-    <label for="busqueda">Buscar:</label>
-    <input type="text" name="busqueda" id="busqueda">
-    <button type="submit">Buscar</button>
-</form>
-</div>
- 
- <a href="/inicio" class="boton3">Atrás</a>
+<h1>${mensaje}</h1>
+<a href="/inicio" class="boton3">Atrás</a>
     <table border="1">
         <thead>
             <tr>
@@ -38,19 +17,22 @@
                 <th>Nombre</th>
                 <th>Descripcion</th>  
                 <th>Precio</th>     
-                <th>Detalle</th>
+                
                 
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${productos}" var="producto">
+            <c:forEach items="${producto}" var="producto">
                 <tr>
                     <td>${producto.idProducto}</td>
                     <td>${producto.nombre}</td>
                     <td>${producto.descripcion}</td>
                     <td>${producto.precio}</td>
-                    <td><a href="/detalleProducto?id_producto=${producto.idProducto}"class="boton">Detalle</a>
-                    <a href="#" class="boton2">Añadir al carrito</a></td>
+                    
+                    <td><a href="/admin/eliminarProducto/${producto.idProducto}" class="boton3">Eliminar</a></td>
+                    
+                    <td><a href="/admin/editar/${producto.idProducto}" class="boton2">Editar</a><td>
+                    
                     
                 </tr>
             </c:forEach>
@@ -58,8 +40,6 @@
     </table>
     
     
-
-     
      <style>
      
      .form{
@@ -147,73 +127,6 @@
      
     }
 </style>
-
-<!-- 
-ESTO ES PARA AÑADIR EL MENU TAMBIEN EN EL RESTO DE PAGINAS
-
-<header style="border: 1px solid black;">
-		<nav>
-			<ul style="justify-content: center">
-				<li><a href=/inicio>Home</a></li>
-				<li><a href=/todosProductos>Productos</a></li>
-				<li><a href=#>Servicios</a></li>
-				<li><a href=#>Carrito</a></li>
-				<li><a href=#>Registrarse</a></li>
-				<li><a href=#><button>Iniciar sesión</button></a></li>
-			</ul>
-		</nav>
-		<style>
-		nav ul {
-			margin: 0;
-			padding: 0;
-			list-style: none;
-			text-align: center;
-			background-color: #f2f2f2;
-		}
-		
-		nav ul li {
-			display: inline-block;
-			margin:  10px;
-		}
-		
-		nav ul li a {
-			display: block;
-			padding: 10px 20px;
-			color: #555;
-			text-decoration: none;
-			font-size: 18px;
-			font-weight: bold;
-			transition: color 0.3s ease-in-out;
-		}
-		
-		nav ul li a:hover {
-			color: #007bff;
-		}
-		
-		section {
-			margin: 40px;
-		}
-		button {
-		
-				background-color: #007bff;
-				color: white;
-				border: none;
-  				border-radius: 5px; 
-  				padding: 10px 20px; 
-  				text-align: center; 
-  				text-decoration: none;
-  				display: inline-block;
-  				font-size: 16px; 
- 	 			margin: 5px;
-  				cursor: pointer;
-  				transition: background-color 0.3s;
-		
-		}
-		
-	</style>
-	</header>
- -->
- 
 
 </body>
 </html>

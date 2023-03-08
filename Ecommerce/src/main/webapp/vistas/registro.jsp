@@ -15,7 +15,7 @@
 			type="text" name="password" placeholder="Contraseña"> <input
 			type="text" name="nombre" placeholder="Nombre"> <input
 			type="text" name="apellidos" placeholder="Apellidos"> <input
-			type="text" name="fechaNacimiento" placeholder="Fecha de Nacimiento dd-mm-yyyy"> <input
+			type="text" name="fechaNacimiento" placeholder="yyyy-mm-dd"> <input
 			type="submit" value="Registro">
 	</form>
 </body>

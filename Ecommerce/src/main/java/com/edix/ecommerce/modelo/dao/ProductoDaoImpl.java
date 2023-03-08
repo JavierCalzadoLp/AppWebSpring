@@ -57,17 +57,7 @@ public class ProductoDaoImpl implements ProductoDao{
 		return filas;
 	}
 	*/
-	/*
-	@Override
-	public int cambiaProducto(Producto producto) {
-		int cambia = 0;
-		if(findByIdReal(producto.getIdProducto()) != null) {
-			prepo.save(producto);
-			cambia = 1;
-		}
-		return cambia;
-	}
-	*/
+
 
 	//Parte hecha por Javier
 
@@ -121,11 +111,21 @@ public class ProductoDaoImpl implements ProductoDao{
 	@Override
 	public int modificarProducto(Producto producto) {
 		int filas=0;
-			if(verProducto(producto.getIdProducto()) != null) {
-				prepo.save(producto);
-				filas=1;
-			}
+		
+			prepo.save(producto);
 		return filas;
 	}
+	/*
+	@Override
+	public int cambiaProducto(Producto producto) {
+		int cambia = 0;
+		if(findByIdReal(producto.getIdProducto()) != null) {
+			prepo.save(producto);
+			cambia = 1;
+		}
+		return cambia;
+	}
+	*/
+
 
 }

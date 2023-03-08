@@ -1,5 +1,10 @@
 package com.edix.ecommerce.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 
@@ -39,10 +44,10 @@ public class HomeController {
 	//@Autowired
 	//private PasswordEncoder passwordEncoder;
 	
-	@GetMapping("/prueba")
+	@GetMapping("/inicio")
 	public String Saludo() {
 		
-		return "prueba";
+		return "inicio";
 	}
 	
 	@GetMapping("/todosProductos")
@@ -59,6 +64,48 @@ public class HomeController {
 		return "detalleProducto";
 	}
 	
+	//Ordenar lista productos
+	@GetMapping("/ordenarProductos")
+	public String ordenarProductos(@RequestParam("ordenarPor") String ordenarPor, Model model) {
+	    List<Producto> productos = pdao.buscarTodos();
+	    switch (ordenarPor) {
+	        case "idProducto":
+	            Collections.sort(productos, Comparator.comparing(Producto::getIdProducto));
+	            break;
+	        case "nombre":
+	            Collections.sort(productos, Comparator.comparing(Producto::getNombre));
+	            break;
+	        case "descripcion":
+	            Collections.sort(productos, Comparator.comparing(Producto::getDescripcion));
+	            break;
+	        case "precio":
+	            Collections.sort(productos, Comparator.comparing(Producto::getPrecio));
+	            break;
+	        default:
+	            break;
+	    }
+	    model.addAttribute("productos", productos);
+	    return "todosProductos";
+	}
+
+	//Buscar productos por nombre
+	
+	@GetMapping("/buscarProductos")
+	public String buscarProductos(@RequestParam("busqueda") String busqueda, Model model) {
+	    List<Producto> productos = pdao.buscarTodos();
+	    List<Producto> productosFiltrados = new ArrayList<>();
+	    for (Producto producto : productos) {
+	        if (producto.getNombre().toLowerCase().contains(busqueda.toLowerCase())) {
+	            productosFiltrados.add(producto);
+	        }
+	    }
+	    model.addAttribute("productos", productosFiltrados);
+	    return "todosProductos";
+	}
+
+	
+	
+	/*
 	@GetMapping("/")
 	public String verTodos(Model model, Authentication aut) {
 		
@@ -68,44 +115,55 @@ public class HomeController {
 			//TODO llamar como se llame la lista
 			return "listaProductos";
 	}
+	*/
 	
 	@GetMapping("/registro")
 	public String registrar(Model model) {
 		
 		
-	//	model.addAttribute("mensaje", "registrando");
-		
 		return "registro";
 		 
 		
 	}
-	/*
+	
+	
 	@PostMapping("/registro")
-	public String proregistrar(Model model, Usuario usuario, RedirectAttributes ratt) {
+	public String proregistrar(Model model, Usuario usuario, RedirectAttributes ratt) throws ParseException {
 		
-		//MIRAR TEMA DE ROLES.
+		
 		
 		usuario.setApellidos(usuario.getApellidos());
 		usuario.setNombre(usuario.getNombre());
+		
+		
+		//String tempdate = usuario.getFechaNacimiento().toString();
+		
+		//Date date1= new SimpleDateFormat("yyyy-MM-dd").parse(tempdate);
+		
+		//Date date1= new SimpleDateFormat("yyyy-MM-dd").parse(tempdate);
+
+		    
+		//usuario.setFechaNacimiento(date1);
 		usuario.setFechaNacimiento(usuario.getFechaNacimiento());
 		usuario.setEmail(usuario.getEmail());
-		usuario.setRole(2);
-	 	usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+		//usuario.setRole(1);
+		usuario.setEnabled(1);
+	 	usuario.setPassword(usuario.getPassword());
 	 	
-	 	//TODO Revisar con los JSP
+	 
 	 	
-	 	if (udao.registro(usuario)) {
+	 	if (udao.altaUsuario(usuario) != 0) {
 	 		ratt.addFlashAttribute("mensaje", "alta realizada");
-	 		return "redirect:/login";
+	 		return "redirect:/registro";
 	 	}
 	 	else {
 	 		model.addAttribute("mensaje", "ya existe como usuario");
-	 		return "/inicioSesion";
+	 		return "/registro";
 	 		
 	 	}
 		
 	}
-	*/
+	
 	
 	@GetMapping("/error")
 	public String procesarError() {

@@ -44,6 +44,8 @@ public class UsuarioController {
 	@Autowired
 	DireccioneDao ddao;
 	
+	
+	
 	/*
 	@GetMapping("/misDatos")
 	public String misDatos(Authentication aut, Model model) {
@@ -54,6 +56,8 @@ public class UsuarioController {
 		
 	}
 	*/
+	
+	
 	/*
 	@PostMapping("/newTarjeta")
 	public String newTarjeta(Model model, Tarjeta tarjeta, RedirectAttributes ratt) {	
@@ -79,8 +83,14 @@ public class UsuarioController {
 		
 	}
 	*/
-	/*
-	@PostMapping("/newDirection")
+	
+	@GetMapping("/addDireccion")
+	public String addDireccion(Model model) {
+		
+		return "addDireccion";
+	}
+	
+	@PostMapping("/addDireccion")
 	public String proregistrar(Model model, Direccione direccion, RedirectAttributes ratt) {
 		
 		direccion.setCalle(direccion.getCalle());
@@ -93,17 +103,17 @@ public class UsuarioController {
 		
 	 	//TODO Revisar con los JSP
 	 	
-	 	if (ddao.registro(direccion)) {
+	 	if (ddao.altaDireccion(direccion) != 0) {
 	 		ratt.addFlashAttribute("mensaje", "alta realizada");
-	 		return "redirect:/login";
+	 		return "redirect:/usuarios/addDireccion";
 	 	}
 	 	else {
-	 		model.addAttribute("mensaje", "ya existe como usuario");
-	 		return "/inicioSesion";
+	 		model.addAttribute("mensaje", "ya existe como dirección");
+	 		return "/usuarios/addDireccion";
 	 		
 	 	}
 		
 	}
-	*/
+	
 
 }
