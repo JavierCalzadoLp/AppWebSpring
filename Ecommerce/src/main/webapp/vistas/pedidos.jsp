@@ -1,48 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ver Usuarios</title>
+<title>Listado de Pedidos</title>
 </head>
 <body>
-<h1> DATOS DE USUARIOS</h1>
- <a href="/" class="boton3">Atrás</a>
- <a href="/admin/registro" class="boton2">Añadir Administrador</a>
+<h1>LISTADO DE PEDIDOS</h1>
+<div class="form">
+
+
+ <form action="/admin/ordenarPedidos" method="get">
+    <label for="ordenarPor">Ordenar por:</label>
+    <select name="ordenarPor" id="ordenarPor">
+        <option value="fecha">Fecha</option>
+    </select>
+    <button type="submit">Ordenar</button>
+</form>
+</div>
+
+<a href="/" class="boton3">Atrás</a>
+
+
+
     <table border="1">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>  
-                <th>Fecha Nacimiento</th>     
-                <th>Email</th>
-                <th>Id_Rol</th>
-                <th>Ajustes</th>
+                <th>Id_Pedido</th>
+                <th>Fecha</th>
+                <th>Id_Direccion</th>  
+                <th>Id_Tarjeta</th>     
+                <th>Id_Usuario</th>
+                <th>Estado</th>
+                <th>Detalles</th>
                 
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${usuarios}" var="usuario">
+            <c:forEach items="${pedido}" var="pedido">
                 <tr>
-                    <td>${usuario.idUsuario}</td>
-                    <td>${usuario.nombre}</td>
-                    <td>${usuario.apellidos}</td>
-                    <td>${usuario.fechaNacimiento}</td>
-                    <td>${usuario.email}</td>
-                    <td>${usuario.role}</td>
-                    <td><a href="/admin/${usuario.idUsuario}" class="boton2">Ver Pedidos</a><td>
-                    
+                    <td>${pedido.idPedido}</td>
+                    <td>${pedido.fecha}</td>
+                    <td>${pedido.direccione}</td>
+                    <td>${pedido.tarjeta.idTarjeta}</td>
+                    <td>${pedido.usuario.idUsuario}</td>
+                    <td>${pedido.estado}</td>
+                    <td><a href="/admin/detallesPedidos/${pedido.idPedido }"class="boton">Detalle</a>
                     
                     
                 </tr>
             </c:forEach>
         </tbody>
     </table>
-    
-     
      <style>
      
      .form{

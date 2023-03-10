@@ -9,5 +9,11 @@ public interface PedidosProductosDao {
 	
 	BigDecimal totalVenta(int idPedido);
 	List<PedidosProductos> pedidosProductosCliente(int idUsuario);
+	
+	PedidosProductos pedidosPorId(int idPedido);
+	
+	List<PedidosProductos> buscarTodosPorIdPedido(int idPedido);
+	
+	List<PedidosProductos> mostrarTodos();
 
 }

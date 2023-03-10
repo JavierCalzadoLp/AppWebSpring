@@ -9,11 +9,7 @@ import com.edix.ecommerce.modelo.beans.Usuario;
 
 public interface UsuarioDao {
 	
-	//boolean registro(Usuario usuario);
-	//Usuario findById(String username);
-	//Usuario mostrarUsuario(String username);
-	
-	
+
 	
 	int modificarRol(Usuario usuario);
 	
@@ -31,6 +27,8 @@ public interface UsuarioDao {
 	
 	List<Direccione> addDireccioneUsuario(Usuario usuario, Direccione direccione);
 	List<Direccione> removeDireccioneUsuario(Usuario usuario, Direccione direccione);
+	
+	Usuario buscarPorEmail(String email);
 	
 	
 	

@@ -8,13 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edix.ecommerce.modelo.beans.Pedido;
+import com.edix.ecommerce.modelo.beans.PedidosProductos;
+import com.edix.ecommerce.modelo.beans.Producto;
 import com.edix.ecommerce.modelo.repository.PedidoRepository;
+import com.edix.ecommerce.modelo.repository.ProductoRepository;
 
 @Service
 public class PedidoDaoImpl implements PedidoDao{
 	
 	@Autowired
 	PedidoRepository prepo;
+	@Autowired
+    ProductoRepository perepo;
 
 	@Override
 	public int nuevoPedido(Pedido pedido) {
@@ -46,17 +51,38 @@ public class PedidoDaoImpl implements PedidoDao{
 		return prepo.findById(idPedido).orElse(null);
 	}
 	
-	/*
+	
 	@Override
 	public List<Pedido> findAllByFecha(Date fecha) {
 		// TODO Auto-generated method stub
 		return prepo.findAllByFecha(fecha);
 	}
-	
-	public List<Pedido> findAllByIdDireccione(int id){
-		return prepo.findAllByIdDireccione(id);
+
+	@Override
+    public boolean byeStock(Pedido pedido) {
+        List<PedidosProductos> listaPep = prepo.buscarTodosPorIdPedido(pedido.getIdPedido());
+
+        for (PedidosProductos pep : listaPep) {
+            Producto producto = pep.getProducto();
+            int cantidad = pep.getUnidades();
+
+            int stock = perepo.verStock(pep.getProducto().getIdProducto());
+            if (stock > 0) { 
+                producto.setStock(stock - cantidad);
+                perepo.save(producto);
+            }else
+                return false;
+        }
+
+        return true;
+
+    }
+
+	@Override
+	public List<Pedido> mostrarTodosPedidos() {
 		
+		return prepo.findAll();
 	}
-	*/
+	
 
 }

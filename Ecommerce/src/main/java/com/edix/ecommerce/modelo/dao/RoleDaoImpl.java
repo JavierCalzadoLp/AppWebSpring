@@ -13,24 +13,7 @@ public class RoleDaoImpl implements RoleDao{
 	
 	@Autowired
 	RoleRepository rrepo;
-	/*
-	@Override
-	public Role findById(int id) {
-		return rrepo.findById(id);
-	}
-	*/
-	/*
-	public Role editarRole(RoleUsuario role) {
-		
-		int cambia = 0;
-		if(findByIdReal(producto.getIdProducto()) != null) {
-			prepo.save(producto);
-			cambia = 1;
-		}
-		return cambia;
-		
-	}
-	*/
+
 
 	@Override
 	public List<Role> verRoles() {
@@ -78,7 +61,7 @@ public class RoleDaoImpl implements RoleDao{
 		return filas;
 	}
 	
-	//TODO CREAR BEAN ROLE USUARIO PARA PODER EDITAR LA TABLA??
+
 	
 	
 

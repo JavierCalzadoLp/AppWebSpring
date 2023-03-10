@@ -26,7 +26,7 @@ public class Producto implements Serializable {
 
 	private String nombre;
 
-	private double precio;
+	private BigDecimal precio;
 
 	private int stock;
 
@@ -57,11 +57,12 @@ public class Producto implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public double getPrecio() {
-		return this.precio;
+
+	public BigDecimal getPrecio() {
+		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
 

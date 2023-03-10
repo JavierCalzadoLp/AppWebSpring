@@ -26,4 +26,12 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer>{
     int actualizarTodosLosProductos(@Param("idProducto") int idProducto, @Param("nombre") String nombre, @Param("precio") double precio, 
     		@Param("descripcion") String descripcion, @Param("stock") int stock);
 */
+	
+	@Query("SELECT p FROM Producto p WHERE p.idProducto = ?1 ")
+	int buscarPorId (int idProducto);
+	
+	@Query("SELECT p.stock FROM Producto p WHERE p.idProducto = ?1")
+    int verStock(int IdProducto);
+
+    //public void save(Producto producto);
 }

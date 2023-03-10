@@ -5,35 +5,32 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ver Usuarios</title>
+<title>Detalles pedidos</title>
 </head>
 <body>
-<h1> DATOS DE USUARIOS</h1>
- <a href="/" class="boton3">Atrás</a>
- <a href="/admin/registro" class="boton2">Añadir Administrador</a>
+
+<h1>Detalles PedidosProductos</h1>
+<a href="/admin/pedidos" class="boton3">Atrás</a>
     <table border="1">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>  
-                <th>Fecha Nacimiento</th>     
-                <th>Email</th>
-                <th>Id_Rol</th>
-                <th>Ajustes</th>
+                <th>Id_Pedido</th>
+                <th>Id_Producto</th>
+                <th>Unidades</th>  
+                <th>Precio Venta</th>     
+                <th>Numero Orden</th>
+            
                 
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${usuarios}" var="usuario">
+            <c:forEach items="${linea}" var="linea">
                 <tr>
-                    <td>${usuario.idUsuario}</td>
-                    <td>${usuario.nombre}</td>
-                    <td>${usuario.apellidos}</td>
-                    <td>${usuario.fechaNacimiento}</td>
-                    <td>${usuario.email}</td>
-                    <td>${usuario.role}</td>
-                    <td><a href="/admin/${usuario.idUsuario}" class="boton2">Ver Pedidos</a><td>
+                    <td>${linea.pedido.idPedido}</td>
+                    <td>${linea.producto.idProducto}</td>
+                    <td>${linea.unidades}</td>
+                    <td>${linea.precio_venta}</td>
+                    <td>${linea.numeroOrden}</td>
                     
                     
                     
@@ -41,8 +38,6 @@
             </c:forEach>
         </tbody>
     </table>
-    
-     
      <style>
      
      .form{
@@ -130,6 +125,7 @@
      
     }
 </style>
+
 
 </body>
 </html>

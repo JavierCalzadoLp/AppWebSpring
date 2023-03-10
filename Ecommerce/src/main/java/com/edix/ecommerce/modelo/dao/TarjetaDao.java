@@ -6,10 +6,7 @@ import com.edix.ecommerce.modelo.beans.Tarjeta;
 import com.edix.ecommerce.modelo.beans.Usuario;
 
 public interface TarjetaDao {
-	/*
-	boolean registro(Tarjeta tarjeta);
-	public Tarjeta findById(String numTarjeta);
-	*/
+	
 	
 	List<Tarjeta> verTodas();
 	

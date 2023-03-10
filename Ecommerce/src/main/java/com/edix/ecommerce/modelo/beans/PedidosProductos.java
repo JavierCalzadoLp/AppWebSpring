@@ -3,6 +3,7 @@ package com.edix.ecommerce.modelo.beans;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class PedidosProductos implements Serializable{
 	private BigDecimal precio_venta;
 	
 	//bi-directional many-to-one association to Pedido
-		@ManyToOne
+		@ManyToOne(cascade= {CascadeType.PERSIST})
 		@JoinColumn(name="id_pedido")
 		private Pedido pedido;
 		

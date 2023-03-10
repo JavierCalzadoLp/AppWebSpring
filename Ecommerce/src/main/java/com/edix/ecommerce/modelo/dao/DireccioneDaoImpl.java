@@ -64,21 +64,5 @@ public class DireccioneDaoImpl implements DireccioneDao{
 		return filas;
 	}
 
-	/*
-	@Override
-	public boolean registro(Direccione direccion) {
-		if (findById(direccion.getCalle()) == null) {
-				drepo.save(direccion);
-				return true;
-		}
-		return false;
-	}
-	*/
-	/*
-	@Override
-	public Direccione findById(String direccion) {
-		return drepo.findByDireccion(direccion);
-	}
-	*/
 
 }

@@ -20,46 +20,14 @@ public class ProductoDaoImpl implements ProductoDao{
 		return prepo.findAll();
 	}
 
-	/*
-	@Override
-	public boolean registro(Producto producto) {
-		if (findById(producto.getNombre()) == null) {
-				prepo.save(producto);
-				return true;
-		}
-		return false;
-	}
-	*/
-	/*
-	@Override
-	public Producto findById(String nombre) {
-		return prepo.findByNombre(nombre);
-	}
-	*/
-	/*
+
+	
 	@Override
 	public Producto findByIdReal(int id) {
-		return prepo.findById(id);
+		return prepo.findById(id).orElse(null);
 	}
-	*/
-	/*
-	@Override
-	public int bajaProducto(int id) {
-		int filas = 0;
-		if(findByIdReal(id) != null) {
-			try {
-			prepo.deleteById(id);
-			filas = 1;
-			}catch(Exception e) {
-				filas=0;
-			}
-		}
-		return filas;
-	}
-	*/
+	
 
-
-	//Parte hecha por Javier
 
 	@Override
 	public List<Producto> verTodos() {
@@ -79,6 +47,7 @@ public class ProductoDaoImpl implements ProductoDao{
 	public Producto verProducto(int idProducto) {
 		
 		return prepo.findById(idProducto).orElse(null);
+		
 	}
 	
 
@@ -115,17 +84,12 @@ public class ProductoDaoImpl implements ProductoDao{
 			prepo.save(producto);
 		return filas;
 	}
-	/*
+
 	@Override
-	public int cambiaProducto(Producto producto) {
-		int cambia = 0;
-		if(findByIdReal(producto.getIdProducto()) != null) {
-			prepo.save(producto);
-			cambia = 1;
-		}
-		return cambia;
+	public int buscarPorId(int idProducto) {
+		
+		return prepo.buscarPorId(idProducto);
 	}
-	*/
 
 
 }

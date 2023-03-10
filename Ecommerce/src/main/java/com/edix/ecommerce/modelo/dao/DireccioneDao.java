@@ -8,8 +8,6 @@ import com.edix.ecommerce.modelo.beans.UsuarioDireccione;
 
 public interface DireccioneDao {
 	
-	//boolean registro(Direccione direccion);
-	//public Direccione findById(String direccion);
 	
 	List<Direccione> verTodas();
 	

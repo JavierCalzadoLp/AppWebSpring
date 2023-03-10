@@ -27,4 +27,24 @@ public class PedidosProductosDaoImpl implements PedidosProductosDao{
 		return pprepo.pedidosProductosCliente(idUsuario);
 	}
 
+	@Override
+	public PedidosProductos pedidosPorId(int idPedido) {
+		
+		return (PedidosProductos) pprepo.buscarTodosPorIdPedido(idPedido);
+	}
+
+	@Override
+	public List<PedidosProductos> buscarTodosPorIdPedido(int idPedido) {
+		
+		return pprepo.buscarTodosPorIdPedido(idPedido);
+	}
+
+	@Override
+	public List<PedidosProductos> mostrarTodos() {
+		
+		return pprepo.findAll();
+	}
+	
+	
+
 }

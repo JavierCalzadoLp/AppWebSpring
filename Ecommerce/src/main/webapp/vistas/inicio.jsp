@@ -4,6 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,23 +13,41 @@
 	<!--  <link rel="stylesheet" href="<c:url value="/resources/css/style.css" />"> -->
 </head>
 <body>
+	
+
+	
 	<header style="border: 1px solid black;">
 		<nav>
 			<ul style="justify-content: center" >
+				
 				<li><a href="<spring:url value="#" />">Home</a></li>
 				<li><a href="<spring:url value="/todosProductos" />">Productos</a></li>
-				<li><a href="<spring:url value="#" />">Mi perfil</a></li>
 				
-				<li><a href="<spring:url value="/registro" />">Registrarse</a></li>
-				<li><a href="<spring:url value="#" />"><button>Iniciar sesión</button></a></li>
-				<li><a href="<spring:url value="#" />">Carrito</a></li>
-				<li><a href="<spring:url value="#" />">Añadir Tarjeta Bancaria</a></li>
+				
+				
+				<li><a href="<spring:url value="/usuarios/carrito" />">Carrito</a></li>
+				
+				
+				
+				<li><a href="<spring:url value="/usuarios/addTarjeta" />">Añadir Tarjeta Bancaria</a></li>
+				
+				
 				<li><a href="<spring:url value="/usuarios/addDireccion" />">Añadir Dirección</a></li>
+				
 				<li><a href="<spring:url value="/admin/altaProducto" />">Alta Productos</a></li>
+				
 				<li><a href="<spring:url value="/admin/eliminarProducto" />">Administrar Productos</a></li>
-				<li><a href="<spring:url value="#" />">Alta Usuarios Admin</a></li>
-				<li><a href="<spring:url value="#" />">Pedidos</a></li>
-				<li><a href="<spring:url value="/admin/verUsuarios" />">Ver Usuarios</a></li>
+				
+				
+				
+				<li><a href="<spring:url value="/admin/pedidos" />">Pedidos</a></li>
+				
+				
+				<li><a href="<spring:url value="/admin/verUsuarios" />">Datos Usuarios</a></li>
+				
+				
+				<li><a href="<spring:url value="#" />"><button>Iniciar sesión</button></a></li>
+				<li><a href="/logout">Cerrar Sesión</a></li>
 				
 			</ul>
 		</nav>
@@ -91,16 +110,22 @@
     <div class="hero-text">
       <h1>Bienvenido a nuestra tienda</h1>
       <p>Regístrese para recibir nuestras últimas noticias y ofertas especiales</p>
-      <a href="#" class="button"><button> Registrarse </button></a>
+      <a href="/registro" class="button"><button> Registrarse </button></a>
     </div>
     <div class="hero-image">
-      <img src="<c:url value="/images/image3.jpg" />" alt="Hero Image" style="width: 600px; height: 400px;"> 
+      <img src="<c:url value="/images/logo.jpg" />" alt="Hero Image" style="width: 600px; height: 400px;"> 
       <!-- style="width: 800px; height: 500px;" -->
     </div>
   </div>
 </section>
 
 <style>
+ 
+ body{
+ font-family: "Calibri";
+
+ }
+ 
 .hero-container {
   display: flex;
   flex-direction: row;

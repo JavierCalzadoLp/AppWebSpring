@@ -8,13 +8,11 @@ import com.edix.ecommerce.modelo.beans.Tarjeta;
 public interface ProductoDao {
 	
 	List<Producto> buscarTodos();
-	//boolean registro(Producto producto);
-	//public Producto findById(String nombre);
-	//int bajaProducto(int id);
-	//public Producto findByIdReal(int id);
-	//int cambiaProducto(Producto producto);
+
+	public Producto findByIdReal(int id);
+
 	
-	// Parte hecha por Javier
+
 	
 	List<Producto> verTodos();
 	List<Producto> verProductosPorNombre(String nombre);
@@ -23,6 +21,11 @@ public interface ProductoDao {
 	int altaProducto(Producto producto);
 	int eliminarProducto(int idProducto);
 	int modificarProducto(Producto producto);
+	
+
+	
+	
+	int buscarPorId (int idProducto);
 	
 
 	

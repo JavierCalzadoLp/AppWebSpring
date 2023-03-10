@@ -30,7 +30,7 @@
 </form>
 </div>
  
- <a href="/inicio" class="boton3">Atrás</a>
+ <a href="/" class="boton3">Atrás</a>
     <table border="1">
         <thead>
             <tr>
@@ -50,7 +50,7 @@
                     <td>${producto.descripcion}</td>
                     <td>${producto.precio}</td>
                     <td><a href="/detalleProducto?id_producto=${producto.idProducto}"class="boton">Detalle</a>
-                    <a href="#" class="boton2">Añadir al carrito</a></td>
+                    <a href="/usuarios/anadirUno/${producto.idProducto }" class="boton2">Añadir al carrito</a></td>
                     
                 </tr>
             </c:forEach>

@@ -63,19 +63,5 @@ public class TarjetaDaoImpl implements TarjetaDao{
 		return filas;
 	}
 
-	/*
-	@Override
-	public boolean registro(Tarjeta tarjeta) {
-		if (findById(tarjeta.getNumTarjeta()) == null) {
-				trepo.save(tarjeta);
-				return true;
-		}
-		return false;
-	}
 	
-	@Override
-	public Tarjeta findById(String numTarjeta) {
-		return trepo.findByNumTarjeta(numTarjeta);
-	}
-	*/
 }

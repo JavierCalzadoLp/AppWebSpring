@@ -15,5 +15,16 @@ public interface PedidosProductosRepository extends JpaRepository<PedidosProduct
 	
 	@Query("SELECT pp FROM PedidosProductos pp WHERE pp.pedido.usuario.idUsuario = ?1")
 	public List<PedidosProductos> pedidosProductosCliente(int idUsuario);
+	
+
+   
+    @Query(value = "SELECT PEP.* FROM ecommerce.PEDIDOS PED JOIN PedidosProductos PEP ON PED.ID_PEDIDO = PEP.ID_PEDIDO WHERE PED.ID_USUARIO = ?1 AND PED.ESTADO = 'CARRITO'", nativeQuery = true)
+    List<PedidosProductos>    ProductosEnPedidoPorUsuario(Integer idUsuario);
+    
+    //@Query("SELECT pp FROM PedidosProducto pp WHERE pp.pedido.idPedido =?1")
+    //PedidosProductos findByIdPedido(int idPedido);
+    
+    @Query(value = "SELECT * FROM PedidosProductos WHERE ID_PEDIDO = ?1", nativeQuery = true)
+    List<PedidosProductos> buscarTodosPorIdPedido(int idPedido);
 
 }

@@ -112,48 +112,12 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	    //session.update(usuario);
 	    return direcciones;
 	}
-
 	
-	//método que modifica el rol del usuario (Solo si eres admin)
-	/*
-	@Override
-	public int modificarRol(Usuario usuario) {
-		
-		Usuario u1 = urepo.verUsuario()
-		
-		
-		
-	        int modifica = 0;
-	        if(u1 != null) {
-	        	Role role = new Role();
-	        	role.setIdRol(2);
-	        	role.setNombre("rol_admin");
-	        	u1.setRole(role);
-	        	
-	            urepo.save(u1);
-	            modifica = 1;
-	        }
-	        return modifica;
-		
-	}
-*/
-	/*
-	@Override
-	public int modificarRol(Usuario usuario) {
-	    int modifica = 0;
-	    Optional<Usuario> optionalU1 = urepo.findById(usuario.getIdUsuario());
-	    if (optionalU1.isPresent()) {
-	        Usuario u1 = optionalU1.get();
-	        Role role = new Role();
-	        role.setIdRol(2);
-	        role.setNombre("rol_admin");
-	        u1.setRole(role);
-	        urepo.save(u1);
-	        modifica = 1;
-	    }
-	    return modifica;
-	}
-	*/
+	public Usuario buscarPorEmail(String email) {
+        return urepo.findByEmail(email);
+    }
+
+
 	
 	@Override
 	public int modificarRol(Usuario usuario) {
@@ -165,31 +129,4 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
 
 
-
-
-	
-
-	
-	
-	/*
-	@Override
-	public Usuario findById(String nombre) {
-		return urepo.findByNombre(nombre);
-	}
-	
-	@Override
-	public boolean registro(Usuario usuario) {
-		if (findById(usuario.getNombre()) == null) {
-				urepo.save(usuario);
-				return true;
-		}
-		return false;
-	}
-	
-	@Override
-	public Usuario mostrarUsuario(String nombre) {
-		
-		return urepo.findByNombre(nombre);
-	}
-*/
 }

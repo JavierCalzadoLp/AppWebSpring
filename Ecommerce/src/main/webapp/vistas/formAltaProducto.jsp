@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +13,7 @@
 	
 	<div class="card">
   <div class="card-body">
-    <h2 class="card-title">FORMULARIO ALTA PRODUCTO</h2>
+    <h1 class="card-title">FORMULARIO ALTA PRODUCTO</h1>
     <h2>${mensaje }</h2>
     <form action="/admin/altaProducto" method="post">
       <div class="form-group">
@@ -30,12 +32,69 @@
         <label for="stock">Stock</label>
         <input type="text" class="form-control" name="stock" id="stock" placeholder="Stock">
       </div>
-      <button type="submit" class="btn btn-primary">Nuevo Producto</button>
-     
+    
+      <button type="submit" class="btn1">Nuevo Producto</button>
+    
     </form>
   </div>
 </div>
 
+<style>
+	/* Estilo de formulario */
+form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo de encabezado */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #555;
+}
+
+/* Estilo de input */
+input[type="text"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+/* Estilo de placeholder */
+input::placeholder {
+  color: #bbb;
+}
+
+/* Estilo de botón */
+input[type="submit"] {
+  background-color: #0d6efd;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Estilo de botón al pasar el mouse */
+input[type="submit"]:hover {
+  background-color: #0b5ed7;
+}
+.btn1{
+background-color: #0d6efd;
+text-align: center;
+color: #fff;
+
+}
+	
+	</style>
+
+<!--  
 <style>
 
 .card {
@@ -82,7 +141,7 @@ box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 </style>
 
-
+-->
 	
 	
 

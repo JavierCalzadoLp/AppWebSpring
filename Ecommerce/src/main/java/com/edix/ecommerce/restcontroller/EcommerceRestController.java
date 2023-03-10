@@ -33,7 +33,7 @@ public class EcommerceRestController {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
-
+	/*
     @GetMapping("/producto/{id}/precio")
     public @ResponseBody Double damePrecioById(@PathVariable("id") double id) { 
         //Producto producto = productoRepository.findById((int) id);
@@ -43,7 +43,7 @@ public class EcommerceRestController {
         }
         return null;
     }
-	
+	*/
 	
 	//Listado de productos de un modelo de zapatillas en exclusiva (Hay que indicar el modelo de zapatillas)
     

@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Administrar productos</title>
 </head>
 <body>
+<h1> Administrar Productos </h1>
 <h1>${mensaje}</h1>
-<a href="/inicio" class="boton3">Atrás</a>
+<a href="/" class="boton3">Atrás</a>
     <table border="1">
         <thead>
             <tr>

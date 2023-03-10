@@ -26,6 +26,17 @@ public class Pedido implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
+	
+	private String estado;
+	
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
 	//uni-directional many-to-one association to Direccione
 	@ManyToOne
@@ -150,11 +161,7 @@ public class Pedido implements Serializable {
 		return Objects.hash(idPedido);
 	}
 
-	@Override
-	public String toString() {
-		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", direccione=" + direccione + ", tarjeta="
-				+ tarjeta + ", usuario=" + usuario + ", pedidosproductos=" + pedidosproductos + "]";
-	}
+	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -165,6 +172,14 @@ public class Pedido implements Serializable {
 		Pedido other = (Pedido) obj;
 		return idPedido == other.idPedido;
 	}
+
+	@Override
+	public String toString() {
+		return "Pedido [idPedido=" + idPedido + ", fecha=" + fecha + ", estado=" + estado + ", direccione=" + direccione
+				+ ", tarjeta=" + tarjeta + ", usuario=" + usuario + ", pedidosproductos=" + pedidosproductos + "]";
+	}
+	
+	
 	
 	
 
